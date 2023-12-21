@@ -1,0 +1,21 @@
+
+syntax = "proto3"; // 生命了protobuf的语法版本
+
+package fixbug; // 声明了代码的命名空间，相当于C++中namespace
+
+message LoginRequest { // message相当于C++中的class
+    string name = 1;
+    string pwd = 2;
+}
+
+message LoginResponse {
+    int32 errcode = 1;
+    string errmsg = 2;
+    bool success = 3;
+}
+
+// 编译 .proto文件
+// protoc -I fast_start/ --cpp_out=fast_start/ contacts.proto
+// -I 后面跟着源文件.proto文件的路径，可以跟多个，需要用空格隔开
+// 如果不带-I选项，默认从当前路径下搜索源文件.proto
+
